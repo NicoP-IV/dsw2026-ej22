@@ -1,0 +1,153 @@
+/* ============================================================
+   Estilos de la vista "Registrar Nueva Especialidad".
+
+   Usa la misma paleta del proyecto (los mismos design tokens).
+   La copiamos acá para que la vista sea independiente y fácil
+   de leer para alguien que recién empieza.
+   ============================================================ */
+:root {
+  --bg: #f6f8fb;          /* fondo de la página */
+  --card: #ffffff;        /* fondo de la tarjeta */
+  --border: #d9dee8;      /* bordes de inputs */
+  --border-soft: #e7eaf0; /* bordes suaves */
+  --text: #43506b;        /* texto normal */
+  --text-strong: #1f2a44; /* títulos y botón guardar */
+  --text-soft: #8a93a6;   /* texto gris/secundario */
+  --accent: #2f6fed;      /* azul principal (foco de inputs) */
+  --radius: 10px;
+  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Contenedor centrado.
+   El espacio exterior lo pone .app-content (de menu.css). */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---------- Encabezado ---------- */
+.breadcrumb {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  margin-bottom: 14px;
+}
+
+.breadcrumb a { color: var(--text-soft); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); }
+
+.page__title {
+  margin: 0 0 4px;
+  font-size: 18px;
+  color: var(--text-strong);
+}
+
+.page__subtitle {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: var(--text-soft);
+  max-width: 480px;
+}
+
+/* ---------- Tarjeta del formulario ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+/* Cada campo (label + input) */
+.field { margin-bottom: 18px; }
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 7px;
+}
+
+/* Inputs, textarea y select comparten el mismo look */
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 11px 12px;
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--text);
+  background: var(--card);
+  outline: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #b3baccff;
+}
+
+/* Cuando el usuario hace foco, borde azul */
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--accent);
+}
+
+.field textarea {
+  min-height: 110px;
+  resize: vertical;   /* se puede estirar solo hacia abajo */
+}
+
+/* ---------- Botones ---------- */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Botón secundario (Cancelar): borde, fondo blanco */
+.btn--ghost {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn--ghost:hover { background: #f2f4f8; }
+
+/* Botón principal (Guardar): azul oscuro */
+.btn--primary {
+  background: var(--text-strong);
+  border: 1px solid var(--text-strong);
+  color: #fff;
+}
+.btn--primary:hover { background: #16233d; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  .card { padding: 18px; }
+  .actions { flex-direction: column-reverse; }  /* botones apilados */
+  .btn { justify-content: center; }
+}
