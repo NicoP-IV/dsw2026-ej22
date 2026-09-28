@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Fondo ---------- */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px 16px;
+  background: radial-gradient(circle at center, #12508a 0%, #0a2f57 45%, #061a33 100%);
+}
+
+.login-container svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ---------- Logo ---------- */
+.login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #fff;
+  color: #0b2e55;
+}
+
+.logo svg {
+  width: 26px;
+  height: 26px;
+}
+
+.login-brand h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* ---------- Tarjeta ---------- */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+}
+
+.welcome {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b2e55;
+}
+
+.hint {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #4a5a6b;
+}
+
+.login-card label {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2a44;
+}
+
+/* ---------- Campos con ícono ---------- */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group > svg {
+  position: absolute;
+  left: 12px;
+  color: #6b7a89;
+  pointer-events: none;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 11px 14px 11px 38px;
+  border: 1px solid #cfe3f3;
+  border-radius: 6px;
+  background: #f2f8fc;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+#toggle-password {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  padding: 5px;
+  background: none;
+  border: none;
+  color: #6b7a89;
+  cursor: pointer;
+}
+
+/* ---------- Botón ---------- */
+.btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #0b3a66;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background: #0f4a80;
+}
+
+/* ---------- Aviso ---------- */
+.notice {
+  display: flex;
+  gap: 10px;
+  padding: 16px 24px;
+  background: #e6f1fa;
+  border-top: 1px solid #cfe3f3;
+  font-size: 12px;
+  color: #4a5a6b;
+}
+
+.notice svg {
+  margin-top: 2px;
+  color: #1d5a92;
+}
+
+.notice p {
+  margin: 0;
+}
+
+.notice strong {
+  color: #1f2a44;
+}
