@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Center - Panel de administración</title>
+  <link rel="stylesheet" href="../menu-nav/menu.css">
+  <link rel="stylesheet" href="panel.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <main class="app-content">
+    <h1>Vista General de Gestión</h1>
+    <p class="subtitle">Configure el personal médico y las especialidades del departamento.</p>
+
+    <div class="actions">
+      <a href="#" class="btn btn-primary"><i data-lucide="plus"></i> Agregar Nuevo Doctor</a>
+      <a href="#" class="btn btn-outline"><i data-lucide="shapes"></i> Agregar Nueva Especialidad</a>
+    </div>
+
+    <section class="cards">
+      <article class="card">
+        <div class="card-top">
+          <span class="card-icon"><i data-lucide="briefcase-medical"></i></span>
+          <span class="tag tag-green">+4 este mes</span>
+        </div>
+        <p class="card-label">Doctores activos</p>
+        <p class="card-value">124</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="card-icon"><i data-lucide="layout-grid"></i></span>
+          <span class="tag">Estable</span>
+        </div>
+        <p class="card-label">Especialidades activas</p>
+        <p class="card-value">32</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="card-icon"><i data-lucide="calendar-check"></i></span>
+          <span class="tag tag-blue">Hoy</span>
+        </div>
+        <p class="card-label">Turnos confirmados para hoy</p>
+        <p class="card-value">48</p>
+      </article>
+    </section>
+
+    <section class="directory">
+      <div class="directory-head">
+        <h2>Directorio de Profesionales Médicos</h2>
+        <div class="search">
+          <i data-lucide="search"></i>
+          <input type="text" placeholder="Buscar por nombre...">
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre del Doctor</th>
+              <th>Especialidad</th>
+              <th>Estado de Disponibilidad</th>
+              <th class="right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="doctor"><img class="avatar" src="images/james-wilson.jpg" alt=""> Dr. James Wilson</div></td>
+              <td>Cardiología</td>
+              <td><span class="status status-active">Activo</span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><div class="doctor"><img class="avatar" src="images/elena-rodriguez.jpg" alt=""> Dr. Elena Rodriguez</div></td>
+              <td>Neurología</td>
+              <td><span class="status status-active">Activo</span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><div class="doctor"><img class="avatar" src="images/robert-chen.jpg" alt=""> Dr. Robert Chen</div></td>
+              <td>Pediatría</td>
+              <td><span class="status status-leave">De Licencia</span></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="directory-foot">
+        <span>Mostrando 1 a 3 de 124 resultados</span>
+        <div class="pager">
+          <button aria-label="Anterior"><i data-lucide="chevron-left"></i></button>
+          <button aria-label="Siguiente"><i data-lucide="chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="panel.js"></script>
+</body>
+</html>
