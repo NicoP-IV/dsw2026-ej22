@@ -1,0 +1,236 @@
+/* ============================================================
+   Design tokens del panel de administración.
+   Todos los módulos (Doctors, Specialties, etc.) deberían
+   reusar estas variables para mantener consistencia visual.
+   ============================================================ */
+:root {
+  --sb-bg: #ffffff;
+  --sb-border: #e7eaf0;
+  --sb-text: #43506b;
+  --sb-text-soft: #8a93a6;
+  --sb-accent: #2f6fed;
+  --sb-accent-bg: #eaf1ff;
+  --sb-danger: #e15b5b;
+  --sb-radius: 10px;
+  --sb-width: 248px;
+  --sb-font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--sb-font);
+  background: #f6f8fb;
+  color: var(--sb-text);
+}
+
+/* ============================================================
+   Layout: sidebar fija a la izquierda + contenido al costado.
+   La página que use este menú necesita esta estructura:
+   <div id="sidebar-root"></div>
+   <main class="app-content"> ... </main>
+   ============================================================ */
+#sidebar-root { display: contents; }
+
+.app-content {
+  margin-left: var(--sb-width);
+  padding: 32px 40px;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sb-width);
+  background: var(--sb-bg);
+  border-right: 1px solid var(--sb-border);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 16px;
+  z-index: 40;
+  transition: transform 0.25s ease;
+}
+
+/* ---------- Marca / logo ---------- */
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px 22px;
+}
+
+.sidebar__logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--sb-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar__brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.sidebar__brand-name { font-weight: 600; font-size: 14.5px; color: #1f2a44; }
+.sidebar__brand-sub { font-size: 11.5px; color: var(--sb-text-soft); }
+
+/* ---------- Navegación ---------- */
+.sidebar__nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebar__nav a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px;
+  border-radius: var(--sb-radius);
+  color: var(--sb-text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sidebar__nav a:hover {
+  background: #f2f4f8;
+}
+
+.sidebar__nav a.active {
+  background: var(--sb-accent-bg);
+  color: var(--sb-accent);
+  font-weight: 600;
+}
+
+.sidebar__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+/* ---------- Footer: ayuda, logout, usuario ---------- */
+.sidebar__footer {
+  margin-top: auto;
+  border-top: 1px solid var(--sb-border);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__footer-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--sb-radius);
+  color: var(--sb-text-soft);
+  text-decoration: none;
+  font-size: 13.5px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.sidebar__footer-link:hover { background: #f2f4f8; }
+.sidebar__logout:hover { color: var(--sb-danger); }
+
+.sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 8px 4px;
+  margin-top: 6px;
+}
+
+.sidebar__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--sb-accent-bg);
+  color: var(--sb-accent);
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar__user-text { display: flex; flex-direction: column; line-height: 1.25; }
+.sidebar__user-name { font-size: 13px; font-weight: 600; color: #1f2a44; }
+.sidebar__user-role { font-size: 11px; color: var(--sb-text-soft); }
+
+/* ============================================================
+   Barra superior (solo celular): contiene el botón hamburguesa.
+   En pantalla grande se oculta (display:none) más abajo por defecto.
+   ============================================================ */
+.topbar {
+  display: none; /* oculta en desktop; el media query la muestra en mobile */
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 14px;
+  background: var(--sb-bg);
+  border-bottom: 1px solid var(--sb-border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.topbar__title {
+  font-weight: 600;
+  color: #1f2a44;
+}
+
+/* ============================================================
+   Botón de menú móvil (hamburguesa).
+   ============================================================ */
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--sb-border);
+  background: #fff;
+  cursor: pointer;
+  color: var(--sb-text);
+}
+
+.sidebar__scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+  z-index: 30;
+}
+
+/* ============================================================
+   Responsive: por debajo de 900px el sidebar pasa a ser
+   un panel off-canvas que se abre con el botón hamburguesa.
+   ============================================================ */
+@media (max-width: 900px) {
+  .topbar { display: flex; }        /* mostramos la barra con el botón ☰ */
+
+  .app-content { margin-left: 0; padding: 20px; }
+
+  .sidebar {
+    transform: translateX(-100%);   /* menú escondido a la izquierda */
+    box-shadow: 8px 0 24px rgba(15, 23, 42, 0.12);
+  }
+
+  .sidebar.open { transform: translateX(0); } /* menú abierto */
+
+  .menu-toggle { display: inline-flex; }
+}
