@@ -278,3 +278,7 @@ td {
   color: var(--sb-text);
   cursor: pointer;
 }
+/* El panel no tiene menú lateral: quitamos el margen que deja menu.css */
+.app-content {
+  margin-left: 0;
+}
