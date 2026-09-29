@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medical Center - Admin</title>
-  <link rel="stylesheet" href="menu.css">
+  <title>Registrar Nueva Especialidad</title>
+  <!-- Estilos del menú lateral (compartidos con todo el panel) -->
+  <link rel="stylesheet" href="../../menu-nav/menu.css">
+  <!-- Estilos propios de esta vista -->
+  <link rel="stylesheet" href="create-speciality.css">
 </head>
 <body>
-
-  <!-- ============================================================
+ <!-- ============================================================
        BARRA SUPERIOR
        Solo se ve en celulares (en pantalla grande se oculta con CSS).
        Tiene el botón ☰ que abre/cierra el menú.
@@ -126,7 +128,66 @@
   <!-- Fondo oscuro que aparece detrás del menú abierto en celular -->
   <div class="sidebar__scrim" id="sidebar-scrim" hidden></div>
 
-  <!-- El JavaScript va al final para que el HTML ya exista cuando corre -->
-  <script src="menu.js"></script>
+  <!-- ============ CONTENIDO ============ -->
+  <main class="app-content">
+  <div class="page">
+
+    <!-- Migas de pan: vuelve al listado -->
+    <div class="breadcrumb">
+      <a href="../Search/search-speciality.html">Especialidades</a>
+      &nbsp;›&nbsp; Agregar Nueva Especialidad
+    </div>
+
+    <h1 class="page__title">Registrar Nueva Especialidad</h1>
+    <p class="page__subtitle">
+      Complete la información técnica y administrativa para dar de alta una
+      especialidad médica en el sistema hospitalario.
+    </p>
+
+    <!-- ============ FORMULARIO ============ -->
+    <form class="card" id="form-especialidad">
+
+      <!-- Nombre -->
+      <div class="field">
+        <label for="nombre">Nombre de la Especialidad</label>
+        <input type="text" id="nombre" placeholder="Ej: Cardiología Intervencionista">
+      </div>
+
+      <!-- Descripción -->
+      <div class="field">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion"
+          placeholder="Detalle el alcance de la especialidad, procedimientos principales y requisitos de derivación..."></textarea>
+      </div>
+
+      <!-- Estado inicial -->
+      <div class="field">
+        <label for="estado">Estado inicial</label>
+        <select id="estado">
+          <option value="activo">Activo - Disponible para programación</option>
+          <option value="inactivo">Inactivo - No disponible</option>
+        </select>
+      </div>
+
+      <!-- Botones -->
+      <div class="actions">
+        <a href="../Search/search-speciality.html" class="btn btn--ghost">Cancelar</a>
+        <button type="submit" class="btn btn--primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+            <path d="M17 21v-8H7v8M7 3v5h8"/>
+          </svg>
+          Guardar Especialidad
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+  </main>
+
+  <!-- JS del menú (toggle en celular) + JS de esta vista -->
+  <script src="../../menu-nav/menu.js"></script>
+  <script src="create-speciality.js"></script>
 </body>
 </html>

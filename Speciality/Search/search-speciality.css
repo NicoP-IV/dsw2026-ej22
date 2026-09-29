@@ -1,0 +1,250 @@
+/* ============================================================
+   Estilos de la vista "Directorio de Especialidades".
+
+   La paleta de colores es la misma del panel (design tokens
+   de menu.css). La copiamos acá para que esta vista sea
+   independiente y fácil de leer para alguien que recién empieza.
+   ============================================================ */
+:root {
+  --bg: #f6f8fb;          /* fondo de la página */
+  --card: #ffffff;        /* fondo de las tarjetas */
+  --border: #e7eaf0;      /* bordes suaves */
+  --text: #43506b;        /* texto normal */
+  --text-strong: #1f2a44; /* títulos */
+  --text-soft: #8a93a6;   /* texto gris/secundario */
+  --accent: #2f6fed;      /* azul principal (botones/links) */
+  --accent-bg: #eaf1ff;   /* azul clarito */
+  --teal: #14b8a6;        /* verde-agua (íconos de especialidad) */
+  --teal-bg: #e6f7f4;     /* verde-agua clarito */
+  --green: #12855b;       /* estado activo */
+  --green-bg: #e3f6ec;
+  --danger: #e15b5b;      /* borrar */
+  --radius: 12px;
+  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Contenedor centrado de toda la vista.
+   El espacio exterior lo pone .app-content (de menu.css). */
+.page {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+/* ---------- Encabezado: título + búsqueda + botón ---------- */
+.page__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;          /* en pantallas chicas se acomoda solo */
+  margin-bottom: 22px;
+}
+
+.page__title {
+  margin: 0 0 4px;
+  font-size: 22px;
+  color: var(--text-strong);
+}
+
+.page__subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-soft);
+  max-width: 360px;
+}
+
+.page__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Caja de búsqueda (lupa + input) */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+}
+
+.search svg { color: var(--text-soft); flex-shrink: 0; }
+
+.search input {
+  border: none;
+  outline: none;
+  font: inherit;
+  font-size: 13px;
+  color: var(--text);
+  background: transparent;
+  width: 180px;
+}
+
+/* Botón azul principal */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;   /* por si es un enlace <a> */
+}
+
+.btn-primary:hover { background: #295fd0; }
+
+/* ---------- Tarjeta con la tabla ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 8px;
+  margin-bottom: 22px;
+  overflow-x: auto;          /* si no entra en el celular, scrollea */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;          /* evita que se aplaste demasiado */
+}
+
+.table th {
+  text-align: left;
+  font-size: 12px;
+  color: var(--text-soft);
+  font-weight: 600;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.table tr:last-child td { border-bottom: none; }
+
+/* Nombre de la especialidad con su ícono */
+.spec { display: flex; align-items: center; gap: 12px; }
+
+.spec__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--teal-bg);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.spec__name { font-weight: 600; color: var(--text-strong); }
+
+.desc { color: var(--text-soft); max-width: 320px; }
+
+/* Etiqueta de estado (Active / Inactive) */
+.badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge--active { background: var(--green-bg); color: var(--green); }
+.badge--inactive { background: #eef1f5; color: var(--text-soft); }
+
+/* Botones de acción (editar / borrar) */
+.actions { display: flex; gap: 6px; }
+
+.icon-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  color: var(--text-soft);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover { background: #f2f4f8; color: var(--text); }
+.icon-btn--danger:hover { background: #fdeaea; color: var(--danger); }
+
+/* ---------- Tarjetas de estadísticas ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal);   /* linea de color a la izquierda */
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.stat__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stat__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.stat__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--teal-bg);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat__value { font-size: 26px; font-weight: 700; color: var(--text-strong); }
+.stat__big   { font-size: 18px; font-weight: 700; color: var(--teal); }
+.stat__note  { font-size: 12px; color: var(--text-soft); margin-top: 4px; }
+.stat__note--up { color: var(--green); }
+
+/* ---------- Responsive: en celular las stats se apilan ---------- */
+@media (max-width: 720px) {
+  .stats { grid-template-columns: 1fr; }
+  .page__actions { width: 100%; }
+  .search { flex: 1; }
+  .search input { width: 100%; }
+}
